@@ -1,0 +1,280 @@
+body{
+    margin: 0;
+    font-family: 'Ubuntu', Arial;
+    background-color: #FAFAFA;
+}
+.container{
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.content{
+    display: grid;
+    grid-template-areas: 'nav-left nav-top' 'nav-left game-body';
+    grid-template-columns: minmax(200px, 250px) auto;
+    grid-template-rows: 50px auto;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.nav-left{
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    grid-area: nav-left;
+    border-right: 1px solid grey;
+}
+.nav-left .clients{
+    width: 100%;
+}
+.nav-left span{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.nav-left li{
+    cursor: pointer;
+    list-style: none;
+    padding: 10px 5px;
+    font-size: 1.2rem;
+    overflow: hidden;
+    transition-duration: .2s;
+    background-color: #ACF4E6;
+    border-bottom: 1px solid grey;
+}
+.nav-left li:hover{
+    background: #18BC9C;
+}
+.nav-left li:active{
+    transform: scale(.9);
+}
+.nav-top{
+    width: 100%;
+    grid-area: nav-top;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-top #name{
+    width: 350px;
+    padding: 5px;
+    border: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.nav-top #submit{
+    padding: 4px 20px;
+}
+.game-body{
+    grid-area: game-body;
+}
+.game-wrapper{
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.players{
+    width: 100%;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.players li{
+    height: 40px;
+    color: #1ca954;
+    transform: scale(0);
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 40px;
+    list-style: none;
+    animation: players 2s ease forwards;
+}
+@keyframes players{
+    0%{
+        transform: scale(0);
+    }
+    20%{
+        transform: scale(1);
+    }
+    30%{
+       transform: scale(.7);  
+    }
+    40%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(.8);
+    }
+    40%, 60%, 80%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+.game-content{
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.items{
+    font-size: 3rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ACF4E6;
+}
+.items.left{
+    border-left: none;
+}
+.items.right{
+    border-right: none;
+}
+.items.top{
+    border-top: none;
+}
+.items.bottom{
+    border-bottom: none;
+}
+
+button{
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+}
+
+.btn-movil{
+    width: 30px;
+    height: 25px;
+    display: none;
+    cursor: pointer;
+    transition-duration: .4s;
+    border-top: 4px solid grey;
+    border-bottom: 4px solid grey;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.btn-movil::before{
+    content: '';
+    width: 100%;
+    height: 3px;
+    display: inline-block;
+    border-top: 4px solid grey;
+    border-bottom: 4px solid grey;
+    position: relative;
+    top: -1px;
+}
+
+@media screen and (max-width: 576px){
+    .content{
+        display: grid;
+        grid-template-areas: 'nav-top nav-top' 'nav-left nav-left' 'game-body game-body';
+        grid-template-columns: 100%;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+    }
+    .nav-top{
+        border-bottom: none;
+        position: sticky;
+        top: 0;
+    }
+    .nav-top #name{
+        width: auto;
+        max-width: 200px;
+    }
+    .nav-left{
+        width: 100%;
+        height: auto;
+        height: 100vh;
+        color: white;
+        padding: 4px 10px;
+        overflow: hidden;
+        overflow-y: auto;
+        border-right: none;
+        box-sizing: border-box;
+        transition-duration: .4s;
+        background-color: rgba(0, 0, 0, .8);
+        position: absolute;
+        top: 0;
+        left: -100%;
+        bottom: 0;
+        right: -100%;
+        z-index: 2;
+    }
+    .nav-left.active{
+        left: 0;
+        right: 0;
+    }
+    .nav-left li{
+        background: #3b3e3d;
+    }
+    .nav-left li:hover{
+        background: transparent;
+    }
+    .game-wrapper{
+        height: initial;
+        height: calc(100vh - 52px);
+    }
+    .players{
+        top: initial;
+        top: 0;
+    }
+    button{
+        bottom: 15px;
+    }
+    .btn-movil{
+        display: block;
+    }
+    .btn-movil.active{
+        height: initial;
+        height: 4px;
+        border: none;
+        background: white;
+        transform: rotate(48deg);
+        bottom: initial;
+        bottom: 25px;
+        z-index: initial;
+        z-index: 3;
+    }
+    .btn-movil.active::before{
+        content: '';
+        height: initial;
+        height: 4px;
+        border: none;
+        background: inherit;
+        transform: rotate(80deg);
+        position: relative;
+        top: -11px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .nav-top form{
+        text-align: center;
+    }
+    .game-content{
+        width: auto;
+        height: auto;
+        width: 250px;
+        height: 250px;
+    }
+}

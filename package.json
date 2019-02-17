@@ -1,0 +1,22 @@
+{
+  "name": "trique-game",
+  "version": "0.0.1",
+  "description": "divierte jugando con tus amigos en la misma red",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "build": "nodemon ./src/server.js"
+  },
+  "keywords": [
+    "trique"
+  ],
+  "author": "Luis Alberto I",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

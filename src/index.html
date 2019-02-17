@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Triqui-Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main id="main">
+        <div class="container">
+            <div class="content" id="content">
+                <div class="btn-movil" onclick="barUsers()">
+                    <!-- button nav movil -->
+                </div>
+                <div class="nav-left">
+                    <div class="clients" id="clients">
+                        <!-- jugadores activos -->
+                        <span>ingreza tu nombre para poder <br>
+                        participar y ver los partipantes</span>
+                    </div>
+                </div>
+                <div class="nav-top">
+                    <form action="" id="form">
+                        <label for="name">
+                            <input type="text" id="name" placeholder="Ingreza tu Nombre">
+                        </label>
+                        <input type="submit" id="submit">
+                    </form>
+                </div>
+                <div class="game-body">
+                    <div class="game-wrapper">
+                        <div id="players">
+                            <!-- juagadores -->
+                        </div>
+                        <div class="game-content" id="game">
+                            <div class="items left top" onclick="button(event)"></div>
+                            <div class="items top" onclick="button(event)"></div>
+                            <div class="items right top" onclick="button(event)"></div>
+                            <div class="items left" onclick="button(event)"></div>
+                            <div class="items" onclick="button(event)"></div>
+                            <div class="items right" onclick="button(event)"></div>
+                            <div class="items left bottom" onclick="button(event)"></div>
+                            <div class="items bottom" onclick="button(event)"></div>
+                            <div class="items right bottom" onclick="button(event)"></div>
+                        </div>
+                        <div id="gameEnd">
+                            <!-- button  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<script src="./socket.io/socket.io.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
